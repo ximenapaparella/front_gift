@@ -188,8 +188,8 @@
 						<li><strong>Teléfono:</strong> 4784.3333</li>
 						<li><strong>Email:</strong> info@spabelgrano.com</li>
 						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
-						<li>@spabelgrano</li>
-						<li>/spabelgrano</li>
+						<li><img src="<?php echo TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
+                        		<li><img src="<?php echo TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
 					</ul>
 				</div>
 			</div>
