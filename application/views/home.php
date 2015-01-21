@@ -157,42 +157,44 @@
 			<div class="form-box" >
 
 			<div class="bottom">
-			<table style="background-image:url(<?php echo TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
-				<tr>
-					<td style="padding-left:65px;padding-right:70px; padding-top:65px;">
-						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">Patricio,</p>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding-left:65px;padding-right:65px;">
-						<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding-left:65px;padding-right:70px;">
-						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">Ximena Paparella</p>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding-left:65px;padding-right:70px;">
-						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">Masajes Relajantes</p>
-					</td>
-				</tr>
-				<tr>
-					<td style="padding-left:65px;padding-right:70px;">
-						<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">
-							Válido hasta el 12/03/2015
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-				</tr>
-			</table>
+				<table style="background-image:url(<?php echo TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
+					<tr>
+						<td style="padding-left:65px;padding-right:70px; padding-top:65px;">
+							<p id="" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">Patricio,</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left:65px;padding-right:65px;">
+							<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left:65px;padding-right:70px;">
+							<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">Ximena Paparella</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left:65px;padding-right:70px;">
+							<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">Masajes Relajantes</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left:65px;padding-right:70px;">
+							<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">
+								Válido hasta el 12/03/2015
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
 
-			<p style="font-size:13px; font-style:italic;"> *Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos </p>
+				<p style="font-size:13px; font-style:italic;">
+					*Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos
+				</p>
 			</div>
 
 			</div>
