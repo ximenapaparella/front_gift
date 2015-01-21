@@ -19,7 +19,14 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+
+		$this->load->model('servicios_model');
+		$servicios = $this->servicios_model->get_all();
+
+		$data['servicios'] = $servicios;
+
+
+		$this->load->view('home', $data);
 	}
 }
 

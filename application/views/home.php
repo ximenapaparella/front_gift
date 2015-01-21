@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="span12">
 						<h1>
-							<a href="home-minimal.html#">
+							<a href="<?php echo base_url('home'); ?>">
 								<img src="<?php echo TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" />
 							</a>
 						</h1>
@@ -69,16 +69,16 @@
 										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
 										<select>
 											<option> Seleccionar cantidad</option>
-											<option> 1</option>
-											<option> 2</option>
-											<option> 3</option>
-											<option> 4</option>
-											<option> 5</option>
-											<option> 6</option>
-											<option> 7</option>
-											<option> 8</option>
-											<option> 9</option>
-											<option> 10</option>
+											<option value="1"> 1</option>
+											<option value="2"> 2</option>
+											<option value="3"> 3</option>
+											<option value="4"> 4</option>
+											<option value="5"> 5</option>
+											<option value="6"> 6</option>
+											<option value="7"> 7</option>
+											<option value="8"> 8</option>
+											<option value="9"> 9</option>
+											<option value="10"> 10</option>
 										</select>
 									</div>
 
@@ -90,37 +90,35 @@
 										<h4> Seleccioná el importe o tratamiento a regalar: </h4>
 										<select>
 											<option> Seleccionar tratamiento o importe.</option>
-											<option> Masajes Descontracturantes ($299)</option>
-											<option> Masajes Relajantes ($299)</option>
-											<option> Masajes con piedras calientes ($399)</option>
-											<option> Reflexologia ($500)</option>
-											<option> Drenaje Linfático ($299)</option>
-											<option> Pulido Facial y Corporal ($199)</option>
-											<option> Gift Válido por $100</option>
-											<option> Gift Válido por $500</option>
+											<?php foreach ($servicios AS $serv): ?>
+											<option>
+												<?php echo $serv['Nombre']; ?>
+												( $<?php echo $serv['Valor']; ?> )
+											</option>
+											<?php endforeach; ?>
 										</select>
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre-comprador" id="nombre-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Nombre">
+										<input type="text" name="nombre" id="nombre" size="30" value="" required class="text login_input"  placeholder="Tu Nombre">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="apellido-comprador" id="apellido-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Apellido">
+										<input type="text" name="apellido" id="apellido" size="30" value="" required class="text login_input"  placeholder="Tu Apellido">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="email-comprador" id="email-comprador" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
+										<input type="text" name="email" id="email" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
 									</div>
 									<div class="form-row">
-										<input type="text" name="telefono-comprador" id="telefono-comprador" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
+										<input type="text" name="telefono" id="telefono" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre-agasajado" id="nombre-agasajado" size="30" value="" required class="text login_input"  placeholder="Nombre del agasajado">
+										<input type="text" name="nombre_para" id="nombre_para" size="30" value="" required class="text login_input"  placeholder="Nombre del agasajado">
 									</div>
 									<div class="form-row">
-										<input type="text" name="apellido-agasajado" id="apellido-agasajado" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
+										<input type="text" name="apellido_para" id="apellido_para" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
 
 
@@ -151,20 +149,64 @@
 
 
 
-
 			<!-- COMIENZO GIFT DISEÑO -->
 			<div style="margin-right:0px;" class="span6">
-				<div class="inner">
-					<div class="form-box" >
-						<div class="bottom">
-							<img width="500px" src="<?php echo TEMPLATE_ASSETS; ?>images/gift.png" />
-							<p style="font-size:13px; font-style:italic;"> *Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos </p>
-						</div>
-					</div>
-					<div class="shadow"></div>
-					<div class="clearfix"></div>
-				</div>
+
+			<div class="inner">
+
+			<div class="form-box" >
+
+			<div class="bottom">
+			<table style="background-image:url(<?php echo TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
+				<tr>
+					<td style="padding-left:65px;padding-right:70px; padding-top:65px;">
+						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">Patricio,</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left:65px;padding-right:65px;">
+						<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left:65px;padding-right:70px;">
+						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">Ximena Paparella</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left:65px;padding-right:70px;">
+						<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">Masajes Relajantes</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left:65px;padding-right:70px;">
+						<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">
+							Válido hasta el 12/03/2015
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+
+			<p style="font-size:13px; font-style:italic;"> *Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos </p>
 			</div>
+
+			</div>
+			<div class="shadow"></div>
+			<div class="clearfix"></div>
+
+			</div>
+
+			</div>
+
+
+
+
+
 			<div class="span6">
 				<div class="inner">
 					<div class="form-box">
@@ -210,3 +252,21 @@
 <script src="<?php echo TEMPLATE_ASSETS; ?>js/contact.js"></script>
 </body>
 </html>
+
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$("#nombre").keyup(function() {
+			var nombre = $('#nombre').val();
+			$('#gift_nombre').text(nombre);
+		});
+		$("#apellido").keyup(function() {
+			var apellido = $('#apellido').val();
+			$('#gift_apellido').text(nombre);
+		});
+	});
+</script>
+
+
+

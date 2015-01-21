@@ -4,13 +4,13 @@
 	<meta charset="utf-8" />
 	<title>Gift - Spa belgrano</title>
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-	<link href="css/style.css" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />  
+	<link href="css/style.css" rel="stylesheet"/> 
 	<link href="css/colors/style-color-01.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="css/contact.css">
+	<link rel="stylesheet" href="css/contact.css">	
 	<link rel="stylesheet" href="css/simple-line-icons.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
-</head>
+</head> 
 <body>
 
 <div id="wrapper">
@@ -18,29 +18,29 @@
 	<!-- Start Header -->
 
 	<div id="header">
-
+	
 		<div class="container">
 			<div class="row">
 				<div class="span12">
-
+				
 					<h1><a href="home-minimal.html#"><img src="images/logo-spa.png" alt="Convert" /></a></h1>
 					<h2 class="menulink"><a href="home-minimal.html#">Menu</a></h2>
-
+					
 					<!-- Start Menu -->
 					<div id="menu">
-
-
-
-
-					</div>
+						
+                        
+                        
+                        
+					</div> 
 					<!-- End Menu -->
-
+					
 				</div>
 				<div class="clearfix"></div>
 			</div>
-
+			
 		</div>
-
+	
 	</div>
 
 	<!-- End Header -->
@@ -48,7 +48,7 @@
 	<!-- Start Content -->
 
 		<div class="container">
-
+				
           <div class="row">
  	<div style="margin-bottom:30px;">
    <h1 style="text-align:center;">Regalá un Gift Certificate</h1>
@@ -56,18 +56,18 @@
    <hr style="color:#999;" />
    </div>
           </div>
-
-
+                
+                 
             <div class="row">
-
-
+            
+             
 	             	<div class="span6">
-
+	        	
 	        		<div class="inner">
-
+	        		
 	        			<div class="form-box">
-
-	        				<div class="bottom">
+	        			
+	        				<div class="bottom"> 
 
 								<div id="success">
 								    <span class="green textcenter">
@@ -82,8 +82,8 @@
 								</div>
 
 								<form id="contact" name="contact" method="post" novalidate>
-
-                                    <div class="form-row">
+    	
+                                    <div class="form-row">	 
                                        <h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
                                         <select>
                                         <option> Seleccionar cantidad</option>
@@ -97,15 +97,15 @@
                                            <option> 8</option>
                                             <option> 9</option>
                                              <option> 10</option>
-
+                                        	
                                         </select>
 								    </div>
-
+                                    
                                <hr  class="hr"/>
-
+                                  
 <h2> Completá los datos </h2>
 
-								   <div class="form-row">
+								   <div class="form-row">	 
 								       <h4> Seleccioná el importe o tratamiento a regalar: </h4>
                                         <select>
                                          <option> Seleccionar tratamiento o importe.</option>
@@ -117,143 +117,122 @@
                                              <option> Pulido Facial y Corporal ($199)</option>
                                                <option> Gift Válido por $100</option>
                                                  <option> Gift Válido por $500</option>
-
+                                        	
                                         </select>
 								    </div>
 
-									<div class="form-row">
+									<div class="form-row">	 
 								        <input type="text" name="nombre-comprador" id="nombre-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Nombre">
 								    </div>
-
-                                    <div class="form-row">
+                                    
+                                    <div class="form-row">	 
 								        <input type="text" name="apellido-comprador" id="apellido-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Apellido">
 								    </div>
-
-									<div class="form-row">
+                                    
+									<div class="form-row">									     
 								        <input type="text" name="email-comprador" id="email-comprador" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
 								    </div>
-									<div class="form-row">
+									<div class="form-row">									     
 								        <input type="text" name="telefono-comprador" id="telefono-comprador" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
 								    </div>
-
-                                    <div class="form-row">
+                                    
+                                    <div class="form-row">									     
 								        <input type="text" name="nombre-agasajado" id="nombre-agasajado" size="30" value="" required class="text login_input"  placeholder="Nombre del agasajado">
 								    </div>
-									<div class="form-row">
+									<div class="form-row">									     
 								        <input type="text" name="apellido-agasajado" id="apellido-agasajado" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
 								    </div>
-
-
-									<div class="form-row">
+                                    
+                                    
+									<div class="form-row">									     
 								        <textarea name="mensaje" id="mensaje" required  placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
 								    </div>
-
-
-									<div class="form-row">
+                                
+                                    
+									<div class="form-row">									    
 								        <input id="submit" type="submit" name="submit" value="Guardar y continuar" class="btn">
-
+                                
 								    </div>
-
-                                    <div class="form-row">
+                                    
+                                    <div class="form-row">									    
 								        <input id="submit" type="submit" name="submit" value="Comprar Gift" class="btn">
-
+                                
 								    </div>
-								</form>
-
-							</div>
-
+								</form>								
+																
+							</div> 
+	        			
 	        			</div>
 	        			<div class="shadow"></div>
 	        			<div class="clearfix"></div>
-
-
-
+	        			
+	        	
+	        		
 	        	</div>
-
-
-
-
-
-
-            </div>
-
-
-
+	        	   
+                   
+               
+           
+           
+           
+            </div>  
+            
+      
+		
 		</div>
-
-
-
-
-
+        
+        
+        
+	        	
+                
                 <!-- FIN GIFT DATOS -->
-
-
+                
                 <!-- COMIENZO GIFT DISEÑO -->
 	        	<div style="margin-right:0px;" class="span6">
-
+	        	
 	        		<div class="inner">
-
+	        		
 	        			<div class="form-box" >
-
-	        				<div class="bottom">
-                              <table style="background-image:url(images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
-  <tr>
-    <td style="padding-left:65px;padding-right:70px; padding-top:65px;"><p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">Patricio,</p></td>
-  </tr>
-  <tr>
-    <td style="padding-left:65px;padding-right:65px;"><p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p></td>
-  </tr>
-  <tr>
-    <td style="padding-left:65px;padding-right:70px;"><p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">Ximena Paparella</p></td>
-  </tr>
-  <tr>
-    <td style="padding-left:65px;padding-right:70px;"><p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">Masajes Relajantes</p></td>
-  </tr>
-  <tr>
-  <td style="padding-left:65px;padding-right:70px;"><p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">Válido hasta el 12/03/2015</p></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-                              <p style="font-size:13px; font-style:italic;"> *Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos </p>
-							</div>
-
+	        			
+	        				<div class="bottom"> 
+                              <img width="500px" src="images/gift.png" />	
+                              <p style="font-size:13px; font-style:italic;"> *Ambos apellidos no aparecerán en el Gift Certificate aunque los guardaremos en nuestra base de datos </p>			
+							</div> 
+	        			
 	        			</div>
 	        			<div class="shadow"></div>
 	        			<div class="clearfix"></div>
-
+	        			
 	        		</div>
-
+	        		
 	        	</div>
-
+                
                 <div class="span6">
-
+	        	
 	        		<div class="inner">
-
+	        		
 	        			<div class="form-box">
-
-	        				<div class="bottom">
+	        			
+	        				<div class="bottom"> 
                           <p><strong>Aclaraciones:</strong> <br />
 - Si no recibis instantáneamente el Gift Certificate en tu casilla de mail, por favor verificá el Correo No Deseado.<br />
-- Validez del Voucher: 90 días a partir de la fecha de compra. </p>
-							</div>
-
+- Validez del Voucher: 90 días a partir de la fecha de compra. </p>			
+							</div> 
+	        			
 	        			</div>
 	        			<div class="shadow"></div>
 	        			<div class="clearfix"></div>
-
+	        			
 	        		</div>
-
+	        		
 	        	</div>
-
+	        	
                 <!-- FOOTER -->
-
+                
           	<div class="row">
                 <div class="footer">
-         			<HR />
-
+         			<HR />	 
+                
            	  	  <ul>
 						<li><strong>Teléfono:</strong> 4784.3333</li>
 						<li><strong>Email:</strong> info@spabelgrano.com</li>
@@ -261,33 +240,33 @@
 					  <li><img src="images/twitter.png" width="20" height="20"> @spabelgrano</li>
                         <li><img src="images/facebook.png" width="20" height="20"> /spabelgrano</li>
 					</ul>
-
+                
          		</div>
             </div>
                 <!-- FOOTER -->
-            </div>
-
-
-
+            </div>  
+		
+        	
+        
 		</div>
-
-
-
-
-	<!-- End content -->
-
-	<div class="clearfix"></div>
-
+	
+    
+      
+    
+	<!-- End content -->	
+	
+	<div class="clearfix"></div> 
+	
 </div>
 
 
 <!--[if lte IE 7]><script src="js/icons-lte-ie7.js"></script><![endif]-->
 <script src="js/jquery.min.js"></script>
 <script src="js/respond.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="js/scripts.js"></script>  
 <script src="js/jquery.form.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 <script src="js/contact.js"></script>
-
+        		
 </body>
 </html>
