@@ -65,52 +65,79 @@
 								</div>
 
 								<form id="contact" name="contact" method="post" novalidate>
-									<p style="font-size:16px; font-weight:bold;"> Selecciona el importe o el tratamiento que deseas regalar.</p>
 									<div class="form-row">
-										<label> Importe: </label>
-										<input style="width:50%" type="text" name="importe" id="importe" size="30" value="" required class="text login_input"  placeholder="$00.00">
-									</div>
-									<div class="form-row">
-										<label> Tratamiento: </label>
-										<select style="width:60%; margin-left:30px;">
-											<option> Masajes Descontracturantes</option>
-											<option> Masajes Relajantes</option>
-											<option> Masajes con piedras calientes</option>
-											<option> Reflexologia</option>
-											<option> Drenaje Linfático</option>
-											<option> Pulido Facial y Corporal</option>
+										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
+										<select>
+											<option> Seleccionar cantidad</option>
+											<option> 1</option>
+											<option> 2</option>
+											<option> 3</option>
+											<option> 4</option>
+											<option> 5</option>
+											<option> 6</option>
+											<option> 7</option>
+											<option> 8</option>
+											<option> 9</option>
+											<option> 10</option>
 										</select>
 									</div>
-									<div class="form-row">
-										<label style="width:30%"> Cantidad de Gifts: </label>
-										<input  style="width:50%" type="text" name="cantidad-gifts" id="cantidad-gifts" size="30" value="" required class="text login_input"  placeholder="Cantidad de Gifts que quieres regalar">
-									</div>
+
 									<hr  class="hr"/>
-									<h2> Completa los datos </h2>
+
+									<h2> Completá los datos </h2>
+
+									<div class="form-row">
+										<h4> Seleccioná el importe o tratamiento a regalar: </h4>
+										<select>
+											<option> Seleccionar tratamiento o importe.</option>
+											<option> Masajes Descontracturantes ($299)</option>
+											<option> Masajes Relajantes ($299)</option>
+											<option> Masajes con piedras calientes ($399)</option>
+											<option> Reflexologia ($500)</option>
+											<option> Drenaje Linfático ($299)</option>
+											<option> Pulido Facial y Corporal ($199)</option>
+											<option> Gift Válido por $100</option>
+											<option> Gift Válido por $500</option>
+										</select>
+									</div>
+
 									<div class="form-row">
 										<input type="text" name="nombre-comprador" id="nombre-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Nombre">
 									</div>
+
 									<div class="form-row">
 										<input type="text" name="apellido-comprador" id="apellido-comprador" size="30" value="" required class="text login_input"  placeholder="Tu Apellido">
 									</div>
+
 									<div class="form-row">
 										<input type="text" name="email-comprador" id="email-comprador" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
 									</div>
 									<div class="form-row">
 										<input type="text" name="telefono-comprador" id="telefono-comprador" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
 									</div>
+
 									<div class="form-row">
 										<input type="text" name="nombre-agasajado" id="nombre-agasajado" size="30" value="" required class="text login_input"  placeholder="Nombre del agasajado">
 									</div>
 									<div class="form-row">
 										<input type="text" name="apellido-agasajado" id="apellido-agasajado" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
+
+
 									<div class="form-row">
 										<textarea name="mensaje" id="mensaje" required  placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
 									</div>
+
+
 									<div class="form-row">
-										<input id="submit" type="submit" name="submit" value="Continuar" class="btn">
+										<input id="submit" type="submit" name="submit" value="Guardar y continuar" class="btn">
+
 									</div>
+
+									<div class="form-row">
+										<input id="submit" type="submit" name="submit" value="Comprar Gift" class="btn">
+									</div>
+
 								</form>
 
 							</div>
