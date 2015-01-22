@@ -67,8 +67,8 @@
 								<form id="contact" name="contact" method="post" novalidate>
 									<div class="form-row">
 										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
-										<select>
-											<option> Seleccionar cantidad</option>
+										<select required name="cantidad" title="campo obligatorio">
+											<option value=""> Seleccionar cantidad</option>
 											<option value="1"> 1</option>
 											<option value="2"> 2</option>
 											<option value="3"> 3</option>
@@ -88,10 +88,10 @@
 
 									<div class="form-row">
 										<h4> Seleccioná el importe o tratamiento a regalar: </h4>
-										<select>
-											<option> Seleccionar tratamiento o importe.</option>
+										<select name="servicio" id="servicio" required title="campo obligatorio">
+											<option value="" > Seleccionar tratamiento o importe.</option>
 											<?php foreach ($servicios AS $serv): ?>
-											<option>
+											<option value="<?php echo $serv['IdServicio']; ?>" data-nombre-servicio="<?php echo $serv['Nombre']; ?>">
 												<?php echo $serv['Nombre']; ?>
 												( $<?php echo $serv['Valor']; ?> )
 											</option>
@@ -100,22 +100,22 @@
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre" id="nombre" size="30" value="" required class="text login_input"  placeholder="Tu Nombre">
+										<input type="text" name="nombre" id="nombre" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="apellido" id="apellido" size="30" value="" required class="text login_input"  placeholder="Tu Apellido">
+										<input type="text" name="apellido" id="apellido" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="email" id="email" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
+										<input type="email" name="email" id="email" title="email incorrecto" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
 									</div>
 									<div class="form-row">
 										<input type="text" name="telefono" id="telefono" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre_para" id="nombre_para" size="30" value="" required class="text login_input"  placeholder="Nombre del agasajado">
+										<input type="text" name="nombre_para" id="nombre_para" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
 									</div>
 									<div class="form-row">
 										<input type="text" name="apellido_para" id="apellido_para" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
@@ -123,19 +123,19 @@
 
 
 									<div class="form-row">
-										<textarea name="mensaje" id="mensaje" required  placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
+										<textarea name="mensaje" id="mensaje" required  title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
 									</div>
 
 
 									<div class="form-row">
-										<input id="submit" type="submit" name="submit" value="Guardar y continuar" class="btn">
+										<input id="continuar" type="submit" name="continuar" value="Guardar y continuar" class="btn">
 
 									</div>
-
+<!--
 									<div class="form-row">
-										<input id="submit" type="submit" name="submit" value="Comprar Gift" class="btn">
+										<input id="comprar" type="submit" name="comprar" value="Comprar Gift" class="btn">
 									</div>
-
+ -->
 								</form>
 
 							</div>
@@ -160,24 +160,24 @@
 				<table style="background-image:url(<?php echo TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
 					<tr>
 						<td style="padding-left:65px;padding-right:70px; padding-top:65px;">
-							<p id="" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">Patricio,</p>
+							<p id="gift_nombre_para" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">&nbsp;</p>
 						</td>
 					</tr>
 					<tr>
 						<td style="padding-left:65px;padding-right:65px;">
-							<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							<p id="gift_mensaje" style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px;">
+								&nbsp;
 							</p>
 						</td>
 					</tr>
 					<tr>
 						<td style="padding-left:65px;padding-right:70px;">
-							<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">Ximena Paparella</p>
+							<p id="gift_nombre" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:right;">&nbsp;</p>
 						</td>
 					</tr>
 					<tr>
 						<td style="padding-left:65px;padding-right:70px;">
-							<p style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">Masajes Relajantes</p>
+							<p id="gift_servicio" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">&nbsp;</p>
 						</td>
 					</tr>
 					<tr>
@@ -263,9 +263,17 @@
 			var nombre = $('#nombre').val();
 			$('#gift_nombre').text(nombre);
 		});
-		$("#apellido").keyup(function() {
-			var apellido = $('#apellido').val();
-			$('#gift_apellido').text(nombre);
+		$("#mensaje").keyup(function() {
+			var mensaje = $('#mensaje').val();
+			$('#gift_mensaje').text(mensaje);
+		});
+		$("#nombre_para").keyup(function() {
+			var nombre_para = $('#nombre_para').val();
+
+		});
+		$('#servicio').on('change', function() {
+			var servicio =  $(this).find(':selected').data('nombre-servicio');
+			$('#gift_servicio').text(servicio);
 		});
 	});
 </script>

@@ -329,12 +329,13 @@
 	}
 
 	.form-row label {
-		font-size:1.2em;
+		/*font-size:1.2em;*/
+		font-size:11px;
 		color:#111;
 		font-weight:300;
-		line-height:3em;
+		/*line-height:3em;*/
 		display:inline-block;
-		width:15%;
+		/*width:15%;*/
 	}
 
 	.form-row label .glyph-item {
