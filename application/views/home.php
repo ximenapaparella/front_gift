@@ -268,8 +268,8 @@
 			$('#gift_mensaje').text(mensaje);
 		});
 		$("#nombre_para").keyup(function() {
-			var nombre_para = $('#nombre_para').val();
-
+			var nombre_para = $('#nombre_para').val() + ',';
+			$('#gift_nombre_para').text(nombre_para);
 		});
 		$('#servicio').on('change', function() {
 			var servicio =  $(this).find(':selected').data('nombre-servicio');
