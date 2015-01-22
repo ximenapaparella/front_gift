@@ -64,7 +64,8 @@
 									</span>
 								</div>
 
-								<form id="contact" name="contact" method="post" novalidate>
+								<form method="post"   action=""  enctype="multipart/form-data">
+
 									<div class="form-row">
 										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
 										<select required id="cantidad" name="cantidad" title="campo obligatorio">
