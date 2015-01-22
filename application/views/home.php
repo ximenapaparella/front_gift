@@ -67,7 +67,7 @@
 								<form id="contact" name="contact" method="post" novalidate>
 									<div class="form-row">
 										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
-										<select required name="cantidad" title="campo obligatorio">
+										<select required id="cantidad" name="cantidad" title="campo obligatorio">
 											<option value=""> Seleccionar cantidad</option>
 											<option value="1"> 1</option>
 											<option value="2"> 2</option>
@@ -88,7 +88,7 @@
 
 									<div class="form-row">
 										<h4> Seleccioná el importe o tratamiento a regalar: </h4>
-										<select name="servicio" id="servicio" required title="campo obligatorio">
+										<select name="servicio" id="servicio" required disabled title="campo obligatorio">
 											<option value="" > Seleccionar tratamiento o importe.</option>
 											<?php foreach ($servicios AS $serv): ?>
 											<option value="<?php echo $serv['IdServicio']; ?>" data-nombre-servicio="<?php echo $serv['Nombre']; ?>">
@@ -100,42 +100,41 @@
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre" id="nombre" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
+										<input type="text" name="nombre" id="nombre" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="apellido" id="apellido" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
+										<input type="text" name="apellido" id="apellido" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
 									</div>
 
 									<div class="form-row">
-										<input type="email" name="email" id="email" title="email incorrecto" size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
+										<input type="email" name="email" id="email" title="email incorrecto" disabled size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
 									</div>
 									<div class="form-row">
-										<input type="text" name="telefono" id="telefono" size="30" value="" class="text login_input"  placeholder="Tu teléfono">
-									</div>
-
-									<div class="form-row">
-										<input type="text" name="nombre_para" id="nombre_para" size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
-									</div>
-									<div class="form-row">
-										<input type="text" name="apellido_para" id="apellido_para" size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
+										<input type="text" name="telefono" id="telefono" disabled size="30" value="" class="text login_input"  placeholder="Tu teléfono">
 									</div>
 
-
 									<div class="form-row">
-										<textarea name="mensaje" id="mensaje" required  title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
+										<input type="text" name="nombre_para" id="nombre_para" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
+									</div>
+									<div class="form-row">
+										<input type="text" name="apellido_para" id="apellido_para" disabled size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
 
 
 									<div class="form-row">
-										<input id="continuar" type="submit" name="continuar" value="Guardar y continuar" class="btn">
+										<textarea name="mensaje" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
+									</div>
 
-									</div>
-<!--
+
 									<div class="form-row">
-										<input id="comprar" type="submit" name="comprar" value="Comprar Gift" class="btn">
+										<input id="continuar"  style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
 									</div>
- -->
+
+									<div class="form-row">
+										<input id="comprar" style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
+									</div>
+
 								</form>
 
 							</div>
@@ -259,22 +258,72 @@
 <script type="text/javascript">
 	$(document).ready(function()
 	{
+
 		$("#nombre").keyup(function() {
 			var nombre = $('#nombre').val();
 			$('#gift_nombre').text(nombre);
 		});
+
 		$("#mensaje").keyup(function() {
 			var mensaje = $('#mensaje').val();
 			$('#gift_mensaje').text(mensaje);
 		});
+
 		$("#nombre_para").keyup(function() {
 			var nombre_para = $('#nombre_para').val() + ',';
 			$('#gift_nombre_para').text(nombre_para);
 		});
+
 		$('#servicio').on('change', function() {
 			var servicio =  $(this).find(':selected').data('nombre-servicio');
 			$('#gift_servicio').text(servicio);
 		});
+
+		$('#cantidad').on('change', function() {
+			var cantidad =  $(this).find(':selected').val();
+			if ($(this).val() == '') {
+				$('#continuar').prop('disabled', true);
+				$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+				$('#comprar').prop('disabled', true);
+				$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+				$('#servicio').prop('disabled', true);
+				$('#nombre').prop('disabled', true);
+				$('#apellido').prop('disabled', true);
+				$('#email').prop('disabled', true);
+				$('#telefono').prop('disabled', true);
+				$('#nombre_para').prop('disabled', true);
+				$('#apellido_para').prop('disabled', true);
+				$('#mensaje').prop('disabled', true);
+			} else if ( $(this).val() == 1 ) {
+				$('#continuar').prop('disabled', true);
+				$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+				$('#comprar').prop('disabled', false);
+				$('#comprar').removeAttr('style');
+				$('#servicio').prop('disabled', false);
+				$('#nombre').prop('disabled', false);
+				$('#apellido').prop('disabled', false);
+				$('#email').prop('disabled', false);
+				$('#telefono').prop('disabled', false);
+				$('#nombre_para').prop('disabled', false);
+				$('#apellido_para').prop('disabled', false);
+				$('#mensaje').prop('disabled', false);
+			} else {
+				$('#continuar').prop('disabled', false);
+				$('#continuar').removeAttr('style');
+				$('#comprar').prop('disabled', true);
+				$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+				$('#servicio').prop('disabled', false);
+				$('#nombre').prop('disabled', false);
+				$('#apellido').prop('disabled', false);
+				$('#email').prop('disabled', false);
+				$('#telefono').prop('disabled', false);
+				$('#nombre_para').prop('disabled', false);
+				$('#apellido_para').prop('disabled', false);
+				$('#mensaje').prop('disabled', false);
+			}
+		});
+
+
 	});
 </script>
 
