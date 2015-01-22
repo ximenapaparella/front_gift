@@ -12,6 +12,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 
+
 <body>
 	<div id="wrapper">
 		<!-- Start Header -->
@@ -38,6 +39,10 @@
 		</div>
 		<!-- End Header -->
 		<!-- Start Content -->
+
+
+
+
 		<div class="container">
 			<div class="row">
 				<div style="margin-bottom:30px;">
@@ -65,22 +70,23 @@
 								</div>
 
 								<form method="post"   action=""  enctype="multipart/form-data">
-
+									<input type="hidden" name="IdVenta" value="<?php if (isset($gift['IdVenta'])) {echo $gift['IdVenta'];}else{echo '0';} ?>" />
 									<div class="form-row">
 										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
-										<select required id="cantidad" name="cantidad" title="campo obligatorio">
+										<select required id="cantidad" name="cantidad" title="campo obligatorio" <?php if (isset($gift['IdVenta'])): echo 'disabled'; endif; ?> >
 											<option value=""> Seleccionar cantidad</option>
-											<option value="1"> 1</option>
-											<option value="2"> 2</option>
-											<option value="3"> 3</option>
-											<option value="4"> 4</option>
-											<option value="5"> 5</option>
-											<option value="6"> 6</option>
-											<option value="7"> 7</option>
-											<option value="8"> 8</option>
-											<option value="9"> 9</option>
-											<option value="10"> 10</option>
+											<option value="1" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "1") echo 'selected="selected"'; ?> > 1</option>
+											<option value="2" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "2") echo 'selected="selected"'; ?> > 2</option>
+											<option value="3" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "3") echo 'selected="selected"'; ?> > 3</option>
+											<option value="4" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "4") echo 'selected="selected"'; ?> > 4</option>
+											<option value="5" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "5") echo 'selected="selected"'; ?> > 5</option>
+											<option value="6" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "6") echo 'selected="selected"'; ?> > 6</option>
+											<option value="7" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "7") echo 'selected="selected"'; ?> > 7</option>
+											<option value="8" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "8") echo 'selected="selected"'; ?> > 8</option>
+											<option value="9" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "9") echo 'selected="selected"'; ?> > 9</option>
+											<option value="10" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "10") echo 'selected="selected"'; ?> > 10</option>
 										</select>
+										<input id="cantidad_input" type="hidden" name="cantidad" value="<?php if (isset($gift['cantidad'])) echo $gift['cantidad']; ?>" />
 									</div>
 
 									<hr  class="hr"/>
@@ -89,7 +95,7 @@
 
 									<div class="form-row">
 										<h4> Seleccioná el importe o tratamiento a regalar: </h4>
-										<select name="servicio" id="servicio" required disabled title="campo obligatorio">
+										<select name="IdServicio" id="servicio" required disabled title="campo obligatorio">
 											<option value="" > Seleccionar tratamiento o importe.</option>
 											<?php foreach ($servicios AS $serv): ?>
 											<option value="<?php echo $serv['IdServicio']; ?>" data-nombre-servicio="<?php echo $serv['Nombre']; ?>">
@@ -101,40 +107,49 @@
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="nombre" id="nombre" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
+										<input type="text" name="NombreComprador" id="nombre" disabled size="30" value="<?php if (isset($gift['NombreComprador'])): echo $gift['NombreComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="apellido" id="apellido" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
+										<input type="text" name="ApellidoComprador" id="apellido" disabled size="30" value="<?php if (isset($gift['ApellidoComprador'])): echo $gift['ApellidoComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
 									</div>
 
 									<div class="form-row">
-										<input type="email" name="email" id="email" title="email incorrecto" disabled size="30" value="" required class="text login_input"  placeholder="Tu E-mail">
+										<input type="email" name="EmailComprador" id="email" title="email incorrecto" disabled size="30" value="<?php if (isset($gift['EmailComprador'])): echo $gift['EmailComprador'];endif; ?>" required class="text login_input"  placeholder="Tu E-mail">
 									</div>
 									<div class="form-row">
-										<input type="text" name="telefono" id="telefono" disabled size="30" value="" class="text login_input"  placeholder="Tu teléfono">
-									</div>
-
-									<div class="form-row">
-										<input type="text" name="nombre_para" id="nombre_para" disabled size="30" value="" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
-									</div>
-									<div class="form-row">
-										<input type="text" name="apellido_para" id="apellido_para" disabled size="30" value="" class="text login_input"  placeholder="Apellido del agasajado">
+										<input type="text" name="TelefonoComprador" id="telefono" disabled size="30" value="<?php if (isset($gift['TelefonoComprador'])): echo $gift['TelefonoComprador'];endif; ?>" class="text login_input"  placeholder="Tu teléfono">
 									</div>
 
-
 									<div class="form-row">
-										<textarea name="mensaje" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"></textarea>
+										<input type="text" name="NombreAgasajado" id="nombre_para" disabled size="30" value="<?php if (isset($gift['NombreAgasajado'])): echo $gift['NombreAgasajado'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
+									</div>
+									<div class="form-row">
+										<input type="text" name="ApellidoAgasajado" id="apellido_para" disabled size="30" value="<?php if (isset($gift['ApellidoAgasajado'])): echo $gift['ApellidoAgasajado'];endif; ?>" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
 
 
 									<div class="form-row">
-										<input id="continuar"  style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
+										<textarea name="MensajePersonalizado" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"><?php if (isset($gift['MensajePersonalizado'])): echo $gift['MensajePersonalizado'];endif; ?></textarea>
 									</div>
 
-									<div class="form-row">
-										<input id="comprar" style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
-									</div>
+
+
+										<?php if ($this->session->userdata('cantidad_restan') == 1): ?> <!-- YA ES EL ULTIMO VOUCHER Y VA A COMPRAR -->
+											<div class="form-row">
+												<input id="comprar" type="submit" name="comprar" value="Comprar Gift" class="btn">
+											</div>
+											<?php $this->session->unset_userdata('cantidad_restan'); ?>
+
+										<?php else: ?>  <!-- SIGUE AVANZANDO EN LOS VOUCHERS -->
+											<div class="form-row">
+												<input id="continuar"  style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
+											</div>
+											<div class="form-row">
+												<input id="comprar" style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
+											</div>
+										<?php endif; ?>
+
 
 								</form>
 
@@ -280,51 +295,65 @@
 			$('#gift_servicio').text(servicio);
 		});
 
-		$('#cantidad').on('change', function() {
-			var cantidad =  $(this).find(':selected').val();
-			if ($(this).val() == '') {
-				$('#continuar').prop('disabled', true);
-				$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
-				$('#comprar').prop('disabled', true);
-				$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
-				$('#servicio').prop('disabled', true);
-				$('#nombre').prop('disabled', true);
-				$('#apellido').prop('disabled', true);
-				$('#email').prop('disabled', true);
-				$('#telefono').prop('disabled', true);
-				$('#nombre_para').prop('disabled', true);
-				$('#apellido_para').prop('disabled', true);
-				$('#mensaje').prop('disabled', true);
-			} else if ( $(this).val() == 1 ) {
-				$('#continuar').prop('disabled', true);
-				$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
-				$('#comprar').prop('disabled', false);
-				$('#comprar').removeAttr('style');
-				$('#servicio').prop('disabled', false);
-				$('#nombre').prop('disabled', false);
-				$('#apellido').prop('disabled', false);
-				$('#email').prop('disabled', false);
-				$('#telefono').prop('disabled', false);
-				$('#nombre_para').prop('disabled', false);
-				$('#apellido_para').prop('disabled', false);
-				$('#mensaje').prop('disabled', false);
-			} else {
-				$('#continuar').prop('disabled', false);
-				$('#continuar').removeAttr('style');
-				$('#comprar').prop('disabled', true);
-				$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
-				$('#servicio').prop('disabled', false);
-				$('#nombre').prop('disabled', false);
-				$('#apellido').prop('disabled', false);
-				$('#email').prop('disabled', false);
-				$('#telefono').prop('disabled', false);
-				$('#nombre_para').prop('disabled', false);
-				$('#apellido_para').prop('disabled', false);
-				$('#mensaje').prop('disabled', false);
-			}
-		});
-
-
+		<?php if (!isset($gift['IdVenta'])): ?>
+			$('#cantidad').on('change', function() {
+				var cantidad =  $(this).find(':selected').val();
+				$('#cantidad_input').val(cantidad);
+				if ($(this).val() == '') {
+					$('#continuar').prop('disabled', true);
+					$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#comprar').prop('disabled', true);
+					$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#servicio').prop('disabled', true);
+					$('#nombre').prop('disabled', true);
+					$('#apellido').prop('disabled', true);
+					$('#email').prop('disabled', true);
+					$('#telefono').prop('disabled', true);
+					$('#nombre_para').prop('disabled', true);
+					$('#apellido_para').prop('disabled', true);
+					$('#mensaje').prop('disabled', true);
+				} else if ( $(this).val() == 1 ) {
+					$('#continuar').prop('disabled', true);
+					$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#comprar').prop('disabled', false);
+					$('#comprar').removeAttr('style');
+					$('#servicio').prop('disabled', false);
+					$('#nombre').prop('disabled', false);
+					$('#apellido').prop('disabled', false);
+					$('#email').prop('disabled', false);
+					$('#telefono').prop('disabled', false);
+					$('#nombre_para').prop('disabled', false);
+					$('#apellido_para').prop('disabled', false);
+					$('#mensaje').prop('disabled', false);
+				} else {
+					$('#continuar').prop('disabled', false);
+					$('#continuar').removeAttr('style');
+					$('#comprar').prop('disabled', true);
+					$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#servicio').prop('disabled', false);
+					$('#nombre').prop('disabled', false);
+					$('#apellido').prop('disabled', false);
+					$('#email').prop('disabled', false);
+					$('#telefono').prop('disabled', false);
+					$('#nombre_para').prop('disabled', false);
+					$('#apellido_para').prop('disabled', false);
+					$('#mensaje').prop('disabled', false);
+				}
+			});
+		<?php else: ?>
+			$('#continuar').prop('disabled', false);
+			$('#continuar').removeAttr('style');
+			$('#comprar').prop('disabled', true);
+			$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+			$('#servicio').prop('disabled', false);
+			$('#nombre').prop('disabled', false);
+			$('#apellido').prop('disabled', false);
+			$('#email').prop('disabled', false);
+			$('#telefono').prop('disabled', false);
+			$('#nombre_para').prop('disabled', false);
+			$('#apellido_para').prop('disabled', false);
+			$('#mensaje').prop('disabled', false);
+		<?php endif; ?>
 	});
 </script>
 
