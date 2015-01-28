@@ -36,14 +36,17 @@ class Home extends CI_Controller {
 				if ( $insert_venta > 0) // Pudo insertar la venta correctamente.
 				{
 					$gift['IdVenta']	= $insert_venta;
+					$gift['cantidad']--;
 					$insert_gift 	= $this->gift_model->insert($gift);
 					if ( $insert_gift > 0) // Insertó correctamente los datos del voucher.
 					{
 						$this->session->set_userdata('cantidad_restan', $gift['cantidad'] );
 						$gift = $this->_limpiar_gift($gift);
-
-
-
+						if ( $this->session->userdata('cantidad_restan') == 0)
+						{
+							$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+							redirect('home');
+						}
 					}
 				} else {
 					// ERROR. no pudo insertar la venta.
@@ -59,6 +62,11 @@ class Home extends CI_Controller {
 					$cantidad_restan = $gift['cantidad'] - 1;
 					$this->session->set_userdata('cantidad', ($gift['cantidad'] - 1));
 					$gift = $this->_limpiar_gift($gift);
+					if ( $this->session->userdata('cantidad_restan') == 0)
+					{
+						$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+						redirect('home');
+					}
 				}
 			}
 

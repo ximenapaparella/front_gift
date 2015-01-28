@@ -40,7 +40,15 @@
 		<!-- End Header -->
 		<!-- Start Content -->
 
-
+		<?php if($this->session->flashdata('success') != ''):?>
+			<div class="row">
+				<div class="span6">
+					<span class="green textcenter">
+						<p style="text-align:center;color: green;font-weight: bold;">Tu mensaje fue enviado!</p>
+					</span>
+				</div>
+			</div>
+		<?php endif;?>
 
 
 		<div class="container">
@@ -53,16 +61,19 @@
 					<hr style="color:#999;" />
 				</div>
 			</div>
+
+
+
+
 			<div class="row">
 				<div class="span6">
+
+
+
 					<div class="inner">
 						<div class="form-box">
 							<div class="bottom">
-								<div id="success">
-									<span class="green textcenter">
-										<p>Your message was sent successfully!</p>
-									</span>
-								</div>
+
 								<div id="error">
 									<span>
 										<p>Something went wrong. Please refresh and try again.</p>
@@ -137,9 +148,9 @@
 
 										<?php if ($this->session->userdata('cantidad_restan') == 1): ?> <!-- YA ES EL ULTIMO VOUCHER Y VA A COMPRAR -->
 											<div class="form-row">
-												<input id="comprar" type="submit" name="comprar" value="Comprar Gift" class="btn">
+												<input  type="submit" name="comprar" value="Comprar Gift" class="btn">
 											</div>
-											<?php $this->session->unset_userdata('cantidad_restan'); ?>
+											<?php //$this->session->unset_userdata('cantidad_restan'); ?>
 
 										<?php else: ?>  <!-- SIGUE AVANZANDO EN LOS VOUCHERS -->
 											<div class="form-row">
