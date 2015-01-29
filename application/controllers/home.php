@@ -41,6 +41,9 @@ class Home extends CI_Controller {
 				$gift = $this->_limpiar_gift($gift); // borra los datos que tiene que volver a completar en el siguiente voucher, por ejemplo nombre agasajado, mensaje, etc.
 				if ( $gift['cantidad'] == 0) // Llegó al último Voucher debe enviar el email y cambiar los estados.
 				{
+					// Debe capturar el estado que devuelve mercado pago y completarlo en el estado de la venta.
+					$status_mp = 3; // harckodeo estado, le pongo ACEPTADO.
+					$estado_mp = $this->ventas_model->set_estado_mp($gift['IdVenta'], $status_mp);
 					$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
 					redirect('home');
 				}
@@ -56,6 +59,12 @@ class Home extends CI_Controller {
 
 		$this->load->view('home', $data);
 	}
+
+
+
+
+
+
 
 
 

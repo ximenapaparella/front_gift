@@ -19,8 +19,15 @@ class Gift_model extends CI_Model
 
 		try {
 
+			$this->load->helper('my_string_helper');
 			unset($gift['cantidad']);
 
+			do { // Genera un código aleatorio y comprueba que no exista.
+				$gift['code'] = generate_code();
+				$exist_code = $this->_check_code_exist($gift['code']);
+			} while($exist_code);
+
+			$gift['FechaCreacion'] = date('Y-m-d');
 			$insert_gift = $this->db->insert('Voucher', $gift);
 
 			if ( $insert_gift )
@@ -39,6 +46,35 @@ class Gift_model extends CI_Model
 
 	}
 
+
+
+	/**
+	 * Comprueba en todos los registros de los Vouchers
+	 * que no exista el código enviado como parámetro.
+	 ******
+	 * @author 	Juan Pablo Sosa <jpasosa@gmail.com>
+	 * @date 	29-enero-2015
+	 * @param  	string 		código generado.
+	 * @return      	boolean  	true si el código existe | false si no existe.
+	 **/
+	public function _check_code_exist($code)
+	{
+		try {
+
+			$q 		= $this->db->get_where('Voucher', array('Code'=>$code));
+			$result 	= $q->result_array();
+
+			if ( isset ($result[0])) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			exit(1);
+		}
+	}
 
 
 
