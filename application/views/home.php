@@ -83,22 +83,28 @@
 								<form method="post"   action=""  enctype="multipart/form-data">
 									<input type="hidden" name="IdVenta" value="<?php if (isset($gift['IdVenta'])) {echo $gift['IdVenta'];}else{echo '0';} ?>" />
 									<div class="form-row">
-										<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
-										<select required id="cantidad" name="cantidad" title="campo obligatorio" <?php if (isset($gift['IdVenta'])): echo 'disabled'; endif; ?> >
-											<option value=""> Seleccionar cantidad</option>
-											<option value="1" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "1") echo 'selected="selected"'; ?> > 1</option>
-											<option value="2" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "2") echo 'selected="selected"'; ?> > 2</option>
-											<option value="3" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "3") echo 'selected="selected"'; ?> > 3</option>
-											<option value="4" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "4") echo 'selected="selected"'; ?> > 4</option>
-											<option value="5" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "5") echo 'selected="selected"'; ?> > 5</option>
-											<option value="6" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "6") echo 'selected="selected"'; ?> > 6</option>
-											<option value="7" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "7") echo 'selected="selected"'; ?> > 7</option>
-											<option value="8" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "8") echo 'selected="selected"'; ?> > 8</option>
-											<option value="9" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "9") echo 'selected="selected"'; ?> > 9</option>
-											<option value="10" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "10") echo 'selected="selected"'; ?> > 10</option>
-										</select>
-										<input id="cantidad_input" type="hidden" name="cantidad" value="<?php if (isset($gift['cantidad'])) echo $gift['cantidad']; ?>" />
+										<?php if (isset($gift['cantidad']) && $gift['cantidad'] != -1): ?>
+											<h4><strong>Te faltan <?php echo $gift['cantidad']; ?> Vouchers para enviar.</strong></h4>
+											<a href="<?php echo base_url('home'); ?>"> quiero volver a empezar todo </a>
+										<?php else: ?>
+											<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
+											<select required id="cantidad" name="cantidad" title="campo obligatorio" <?php if (isset($gift['IdVenta'])): echo 'disabled'; endif; ?> >
+												<option value=""> Seleccionar cantidad</option>
+												<option value="1" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "1") echo 'selected="selected"'; ?> > 1</option>
+												<option value="2" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "2") echo 'selected="selected"'; ?> > 2</option>
+												<option value="3" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "3") echo 'selected="selected"'; ?> > 3</option>
+												<option value="4" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "4") echo 'selected="selected"'; ?> > 4</option>
+												<option value="5" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "5") echo 'selected="selected"'; ?> > 5</option>
+												<option value="6" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "6") echo 'selected="selected"'; ?> > 6</option>
+												<option value="7" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "7") echo 'selected="selected"'; ?> > 7</option>
+												<option value="8" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "8") echo 'selected="selected"'; ?> > 8</option>
+												<option value="9" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "9") echo 'selected="selected"'; ?> > 9</option>
+												<option value="10" <?php if (isset($gift['cantidad']) && $gift['cantidad'] == "10") echo 'selected="selected"'; ?> > 10</option>
+											</select>
+										<?php endif ?>
 									</div>
+
+									<input id="cantidad_input" type="hidden" name="cantidad" value="<?php if (isset($gift['cantidad'])) echo $gift['cantidad']; ?>" />
 
 									<hr  class="hr"/>
 
@@ -131,27 +137,19 @@
 									<div class="form-row">
 										<input type="text" name="TelefonoComprador" id="telefono" disabled size="30" value="<?php if (isset($gift['TelefonoComprador'])): echo $gift['TelefonoComprador'];endif; ?>" class="text login_input"  placeholder="Tu teléfono">
 									</div>
-
 									<div class="form-row">
 										<input type="text" name="NombreAgasajado" id="nombre_para" disabled size="30" value="<?php if (isset($gift['NombreAgasajado'])): echo $gift['NombreAgasajado'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Nombre del agasajado">
 									</div>
 									<div class="form-row">
 										<input type="text" name="ApellidoAgasajado" id="apellido_para" disabled size="30" value="<?php if (isset($gift['ApellidoAgasajado'])): echo $gift['ApellidoAgasajado'];endif; ?>" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
-
-
 									<div class="form-row">
 										<textarea name="MensajePersonalizado" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"><?php if (isset($gift['MensajePersonalizado'])): echo $gift['MensajePersonalizado'];endif; ?></textarea>
 									</div>
-
-
-
-										<?php if ($this->session->userdata('cantidad_restan') == 1): ?> <!-- YA ES EL ULTIMO VOUCHER Y VA A COMPRAR -->
+										<?php if (isset($gift['cantidad']) && $gift['cantidad'] == 1): ?> <!-- YA ES EL ULTIMO VOUCHER Y VA A COMPRAR -->
 											<div class="form-row">
 												<input  type="submit" name="comprar" value="Comprar Gift" class="btn">
 											</div>
-											<?php //$this->session->unset_userdata('cantidad_restan'); ?>
-
 										<?php else: ?>  <!-- SIGUE AVANZANDO EN LOS VOUCHERS -->
 											<div class="form-row">
 												<input id="continuar"  style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
@@ -160,10 +158,7 @@
 												<input id="comprar" style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
 											</div>
 										<?php endif; ?>
-
-
 								</form>
-
 							</div>
 						</div>
 						<div class="shadow"></div>

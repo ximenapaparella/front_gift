@@ -27,53 +27,27 @@ class Home extends CI_Controller {
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			$gift 	= $this->get_data_post();
-
-
-			if ($gift['IdVenta'] == 0) // Debe hacer el primer insert en registro ventas
-			{
+			if ($gift['IdVenta'] == 0) { // PRIMER TARJETA
 				$insert_venta = $this->ventas_model->primer_insert(); // Lo va a poner en estado de espera y la fecha de creación, fecha actual.
-
-				if ( $insert_venta > 0) // Pudo insertar la venta correctamente.
-				{
-					$gift['IdVenta']	= $insert_venta;
-					$gift['cantidad']--;
-					$insert_gift 	= $this->gift_model->insert($gift);
-					if ( $insert_gift > 0) // Insertó correctamente los datos del voucher.
-					{
-						$this->session->set_userdata('cantidad_restan', $gift['cantidad'] );
-						$gift = $this->_limpiar_gift($gift);
-						if ( $this->session->userdata('cantidad_restan') == 0)
-						{
-							$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
-							redirect('home');
-						}
-					}
-				} else {
-					// ERROR. no pudo insertar la venta.
-				}
-			}
-			else {
+				$gift['IdVenta']	= $insert_venta;
+				$insert_gift 	= $this->gift_model->insert($gift);
+			} else {
 				$insert_gift 	= $this->gift_model->insert($gift); // Puede ser el segundo voucher que inserta.
+			}
 
-				if ( $insert_gift > 0) // Insertó correctamente los datos del voucher.
+			if ( $insert_gift > 0) // Insertó correctamente los datos del voucher.
+			{
+				$gift['cantidad']--;
+				$gift = $this->_limpiar_gift($gift); // borra los datos que tiene que volver a completar en el siguiente voucher, por ejemplo nombre agasajado, mensaje, etc.
+				if ( $gift['cantidad'] == 0) // Llegó al último Voucher debe enviar el email y cambiar los estados.
 				{
-					$restan_tarjetas = $this->session->userdata('cantidad_restan');
-					$this->session->set_userdata('cantidad_restan', ($restan_tarjetas - 1) );
-					$cantidad_restan = $gift['cantidad'] - 1;
-					$this->session->set_userdata('cantidad', ($gift['cantidad'] - 1));
-					$gift = $this->_limpiar_gift($gift);
-					if ( $this->session->userdata('cantidad_restan') == 0)
-					{
-						$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
-						redirect('home');
-					}
+					$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+					redirect('home');
 				}
 			}
 
-		} else {
-			$this->session->unset_userdata('cantidad_restan');
+		} else { // GET
 			$gift = array();
-
 		}
 
 		$data['gift'] 		= $gift;
@@ -106,7 +80,7 @@ class Home extends CI_Controller {
 		{
 			$gift['cantidad'] = $this->input->post('cantidad');
 		} else {
-			$gift['cantidad'] = 2;
+			$gift['cantidad'] = -1;
 		}
 
 		if($this->input->post('IdServicio'))
