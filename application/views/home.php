@@ -280,7 +280,10 @@
 <script type="text/javascript">
 	$(document).ready(function()
 	{
-
+		var nombre = $('#nombre').val();
+		if ( nombre != '') {
+			$('#gift_nombre').text(nombre);
+		}
 		$("#nombre").keyup(function() {
 			var nombre = $('#nombre').val();
 			$('#gift_nombre').text(nombre);
