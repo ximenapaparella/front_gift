@@ -204,7 +204,7 @@
 					<tr>
 						<td style="padding-left:65px;padding-right:70px;">
 							<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">
-								Válido hasta el 12/03/2015
+								Válido hasta el <?php echo $fecha_venc; ?>
 							</p>
 						</td>
 					</tr>

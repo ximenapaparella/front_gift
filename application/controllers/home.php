@@ -44,7 +44,12 @@ class Home extends CI_Controller {
 					// Debe capturar el estado que devuelve mercado pago y completarlo en el estado de la venta.
 					$status_mp = 3; // harckodeo estado, le pongo ACEPTADO.
 					$estado_mp = $this->ventas_model->set_estado_mp($gift['IdVenta'], $status_mp);
-					$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+					$send_mails = $this->_send_mails( $gift['IdVenta']);
+					if ( $send_mails ) {
+						$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+					} else {
+						$this->session->set_flashdata('success','Los Vouchers no se pudieron enviar.');
+					}
 					redirect('home');
 				}
 			}
@@ -54,6 +59,7 @@ class Home extends CI_Controller {
 		}
 
 		$data['gift'] 		= $gift;
+		$data['fecha_venc']= date('d-m-Y', strtotime("+90 days"));
 		$data['servicios'] 	= $this->servicios_model->get_all();
 
 
@@ -61,8 +67,57 @@ class Home extends CI_Controller {
 	}
 
 
+	/**
+	 * Envía los mails con los Vouchers.
+	 *
+	 * @author 	Juan Pablo Sosa <jpasosa@gmail.com>
+	 * @date 	02-feb-2015
+	 *
+	 * @param      int 			idVenta
+	 * @return      boolean		true si envío todos los mails correctamente | false si falló por algún lado.
+	 **/
+	private function _send_mails( $id_venta )
+	{
+		try {
 
+			$gift['NombreComprador'] 	= 'Juan Pablo';
+			$gift['EmailComprador'] 		= 'juanpablososa@gmail.com';
+			$gift['NombreAgasajado'] 		= 'fede';
+			$gift['NombreComprador'] 	= 'Juan Pablo';
+			$gift['MensajePersonalizado'] 	= 'Te queria desea un muy buen feliz cumpleaños.';
+			$gift['fecha_venc'] 				= date('d-m-Y', strtotime("+90 days"));
+			$gift['codigo'] 					= 'UH76T';
+			$gift['servicio']					= 'Masajes relajantes.';
 
+			$data['gift'] 	= $gift;
+
+			$message = $this->load->view('template_gift',$data,TRUE);
+
+			$this->load->library('email');
+			$config = array (
+								'mailtype' => 'html',
+								'charset'  => 'utf-8',
+								'priority' => '1'
+							);
+			$this->email->initialize($config);
+
+			$this->email->from($this->config->item($gift['EmailComprador']));
+			$this->email->to($gift['EmailComprador']);
+			$this->email->subject('Envío Voucher.');
+			$this->email->message($message);
+
+			if($this->email->send()) {
+				return true;
+			}else {
+				return false;
+			}
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			exit(1);
+		}
+
+	}
 
 
 
