@@ -107,8 +107,12 @@ class Home extends CI_Controller {
 			$this->email->message($message);
 
 			if($this->email->send()) {
+				echo $this->email->print_debugger();
+				die();
 				return true;
 			}else {
+				echo $this->email->print_debugger();
+				die();
 				return false;
 			}
 
