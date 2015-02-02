@@ -94,25 +94,30 @@ class Home extends CI_Controller {
 			$message = $this->load->view('template_gift',$data,TRUE);
 
 			$this->load->library('email');
-			$config = array (
-								'mailtype' => 'html',
-								'charset'  => 'utf-8',
-								'priority' => '1'
-							);
+			$config = array(
+					    'protocol' => 'smtp',
+					    'smtp_host' => 'smtp.webalibre.com.ar',
+					    'smtp_port' => 25,
+					    'smtp_user' => 'send_email@webalibre.com.ar',
+					    'smtp_pass' => 'send_pass2k15',
+					    'smtp_timeout' => '4',
+					    'mailtype'  => 'html',
+					    'charset'   => 'utf-8'
+					);
 			$this->email->initialize($config);
 
-			$this->email->from($this->config->item($gift['EmailComprador']));
+			$this->email->from($this->config->item('juanpablososa@gmail.com'));
 			$this->email->to($gift['EmailComprador']);
 			$this->email->subject('Envío Voucher.');
 			$this->email->message($message);
 
 			if($this->email->send()) {
-				echo $this->email->print_debugger();
-				die();
+				// echo $this->email->print_debugger();
+				// die();
 				return true;
 			}else {
-				echo $this->email->print_debugger();
-				die();
+				// echo $this->email->print_debugger();
+				// die();
 				return false;
 			}
 
