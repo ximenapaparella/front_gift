@@ -47,6 +47,7 @@ class Home extends CI_Controller {
 					$send_mails = $this->_send_mails( $gift['IdVenta']);
 					if ( $send_mails ) {
 						$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
+						redirect('home/gracias');
 					} else {
 						$this->session->set_flashdata('success','Los Vouchers no se pudieron enviar.');
 					}
@@ -66,6 +67,12 @@ class Home extends CI_Controller {
 		$this->load->view('home', $data);
 	}
 
+
+	public function gracias()
+	{
+		$data = array();
+		$this->load->view('gracias', $data);
+	}
 
 	/**
 	 * Envía los mails con los Vouchers.

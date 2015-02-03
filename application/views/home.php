@@ -203,7 +203,7 @@
 					</tr>
 					<tr>
 						<td style="padding-left:65px;padding-right:70px;">
-							<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#a91b30; text-align:center;">
+							<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#666; text-align:center;">
 								Válido hasta el <?php echo $fecha_venc; ?>
 							</p>
 						</td>
@@ -310,9 +310,11 @@
 				$('#cantidad_input').val(cantidad);
 				if ($(this).val() == '') {
 					$('#continuar').prop('disabled', true);
-					$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					// $('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#continuar').css({"display":"none"});
 					$('#comprar').prop('disabled', true);
-					$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					// $('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#comprar').css({"display":"none"});
 					$('#servicio').prop('disabled', true);
 					$('#nombre').prop('disabled', true);
 					$('#apellido').prop('disabled', true);
@@ -323,7 +325,8 @@
 					$('#mensaje').prop('disabled', true);
 				} else if ( $(this).val() == 1 ) {
 					$('#continuar').prop('disabled', true);
-					$('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					// $('#continuar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#continuar').css({"display":"none"});
 					$('#comprar').prop('disabled', false);
 					$('#comprar').removeAttr('style');
 					$('#servicio').prop('disabled', false);
@@ -338,8 +341,8 @@
 					$('#continuar').prop('disabled', false);
 					$('#continuar').removeAttr('style');
 					$('#comprar').prop('disabled', true);
-					$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
-					$('#servicio').prop('disabled', false);
+					// $('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+					$('#comprar').css({"display":"none"});
 					$('#nombre').prop('disabled', false);
 					$('#apellido').prop('disabled', false);
 					$('#email').prop('disabled', false);
@@ -353,7 +356,8 @@
 			$('#continuar').prop('disabled', false);
 			$('#continuar').removeAttr('style');
 			$('#comprar').prop('disabled', true);
-			$('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+			// $('#comprar').css({"opacity":"0.4", "filter":"alpha(opacity=40)"});
+			$('#comprar').css({"display":"none"});
 			$('#servicio').prop('disabled', false);
 			$('#nombre').prop('disabled', false);
 			$('#apellido').prop('disabled', false);
