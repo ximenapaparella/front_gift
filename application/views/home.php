@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Gift - Spa belgrano</title>
-	<link rel="shortcut icon" href="<?php echo TEMPLATE_ASSETS; ?>images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/favicon.ico" type="image/x-icon">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-	<link href="<?php echo TEMPLATE_ASSETS; ?>css/style.css" rel="stylesheet"/>
-	<link href="<?php echo TEMPLATE_ASSETS; ?>css/colors/style-color-01.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="<?php echo TEMPLATE_ASSETS; ?>css/contact.css">
-	<link rel="stylesheet" href="<?php echo TEMPLATE_ASSETS; ?>css/simple-line-icons.css">
+	<link href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/style.css" rel="stylesheet"/>
+	<link href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/colors/style-color-01.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/contact.css">
+	<link rel="stylesheet" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/simple-line-icons.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -22,7 +22,7 @@
 					<div class="span12">
 						<h1>
 							<a href="<?php echo base_url('home'); ?>">
-								<img src="<?php echo TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" />
+								<img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" />
 							</a>
 						</h1>
 						<h2 class="menulink">
@@ -178,7 +178,7 @@
 			<div class="form-box" >
 
 			<div class="bottom">
-				<table style="background-image:url(<?php echo TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
+				<table style="background-image:url(<?php echo base_url() . TEMPLATE_ASSETS; ?>images/gift.png); background-position:center; background-repeat:no-repeat; height:340px;"  width="100%" border="0">
 					<tr>
 						<td style="padding-left:65px;padding-right:70px; padding-top:65px;">
 							<p id="gift_nombre_para" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777;">&nbsp;</p>
@@ -253,8 +253,8 @@
 						<li><strong>Teléfono:</strong> 4784.3333</li>
 						<li><strong>Email:</strong> info@spabelgrano.com</li>
 						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
-						<li><img src="<?php echo TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
-                        		<li><img src="<?php echo TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
+						<li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
+                        		<li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
 					</ul>
 				</div>
 			</div>
@@ -267,12 +267,12 @@
 
 
 <!--[if lte IE 7]><script src="js/icons-lte-ie7.js"></script><![endif]-->
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/respond.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/scripts.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.form.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.validate.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/contact.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/respond.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/scripts.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.form.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.validate.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/contact.js"></script>
 </body>
 </html>
 

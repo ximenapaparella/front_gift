@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Gift - Spa belgrano</title>
-	<link rel="shortcut icon" href="<?php echo TEMPLATE_ASSETS; ?>images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/favicon.ico" type="image/x-icon">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-	<link href="<?php echo TEMPLATE_ASSETS; ?>css/style.css" rel="stylesheet"/>
-	<link href="<?php echo TEMPLATE_ASSETS; ?>css/colors/style-color-01.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="<?php echo TEMPLATE_ASSETS; ?>css/contact.css">
-	<link rel="stylesheet" href="<?php echo TEMPLATE_ASSETS; ?>css/simple-line-icons.css">
+	<link href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/style.css" rel="stylesheet"/>
+	<link href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/colors/style-color-01.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/contact.css">
+	<link rel="stylesheet" href="<?php echo base_url() . TEMPLATE_ASSETS; ?>css/simple-line-icons.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="span12">
 
-					<h1><a href="home-minimal.html#"><img src="<?php echo TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" /></a></h1>
+					<h1><a href="home-minimal.html#"><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" /></a></h1>
 					<h2 class="menulink"><a href="home-minimal.html#">Menu</a></h2>
 
 					<!-- Start Menu -->
@@ -64,7 +64,7 @@
 
 
             <h2 style="text-align:center;">Pato yo aprovecharía este espacio para poner alguna imagen de alguna promoción!</h2>
-            <img style="border:2px solid #6c1927; text-align:center; margin-left:100px;" src="<?php echo TEMPLATE_ASSETS; ?>images/baner_cronometro-930x300.png" />
+            <img style="border:2px solid #6c1927; text-align:center; margin-left:100px;" src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/baner_cronometro-930x300.png" />
 
 
              </div>
@@ -79,8 +79,8 @@
 						<li><strong>Teléfono:</strong> 4784.3333</li>
 						<li><strong>Email:</strong> info@spabelgrano.com</li>
 						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
-					  <li><img src="<?php echo TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
-                        <li><img src="<?php echo TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
+					  <li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
+                        <li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
 					</ul>
 
          		</div>
@@ -103,12 +103,12 @@
 
 
 <!--[if lte IE 7]><script src="js/icons-lte-ie7.js"></script><![endif]-->
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/respond.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/scripts.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.form.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/jquery.validate.min.js"></script>
-<script src="<?php echo TEMPLATE_ASSETS; ?>js/contact.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/respond.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/scripts.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.form.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/jquery.validate.min.js"></script>
+<script src="<?php echo base_url() . TEMPLATE_ASSETS; ?>js/contact.js"></script>
 
 </body>
 </html>
