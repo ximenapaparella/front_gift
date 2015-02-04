@@ -46,6 +46,21 @@ class Gift_model extends CI_Model
 
 	}
 
+	public function get_all_gifts( $id_venta )
+	{
+		try {
+
+			$query = $this->db->get_where('Voucher', array('IdVenta'=>$id_venta));
+
+			$result = $query->result_array();
+
+			return $result;
+
+		} catch (Exception $e) {
+			echo $e->getMessage();
+			exit(1);
+		}
+	}
 
 
 	/**

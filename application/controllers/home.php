@@ -22,8 +22,6 @@ class Home extends CI_Controller {
 	 **/
 	public function index()
 	{
-
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			$gift 	= $this->get_data_post();
@@ -44,7 +42,7 @@ class Home extends CI_Controller {
 					// Debe capturar el estado que devuelve mercado pago y completarlo en el estado de la venta.
 					$status_mp = 3; // harckodeo estado, le pongo ACEPTADO.
 					$estado_mp = $this->ventas_model->set_estado_mp($gift['IdVenta'], $status_mp);
-					$send_mails = $this->_send_mails( $gift['IdVenta']);
+					$send_mails = $this->_send_mails( $gift['IdVenta'] );
 					if ( $send_mails ) {
 						$this->session->set_flashdata('success','Los Vouchers se han cargado y enviado con éxito');
 						redirect('home/gracias');
@@ -74,6 +72,12 @@ class Home extends CI_Controller {
 		$this->load->view('gracias', $data);
 	}
 
+	public function mailing()
+	{
+		$data = array();
+		$this->load->view('template_gift', $data);
+	}
+
 	/**
 	 * Envía los mails con los Vouchers.
 	 *
@@ -87,46 +91,57 @@ class Home extends CI_Controller {
 	{
 		try {
 
-			$gift['NombreComprador'] 	= 'Juan Pablo';
-			$gift['EmailComprador'] 		= 'juanpablososa@gmail.com';
-			$gift['NombreAgasajado'] 		= 'fede';
-			$gift['NombreComprador'] 	= 'Juan Pablo';
-			$gift['MensajePersonalizado'] 	= 'Te queria desea un muy buen feliz cumpleaños.';
-			$gift['fecha_venc'] 				= date('d-m-Y', strtotime("+90 days"));
-			$gift['codigo'] 					= 'UH76T';
-			$gift['servicio']					= 'Masajes relajantes.';
 
-			$data['gift'] 	= $gift;
+			$gift = $this->gift_model->get_all_gifts($id_venta);
+			// $gift['NombreComprador'] 	= 'Juan Pablo';
+			// $gift['EmailComprador'] 		= 'juanpablososa@gmail.com';
+			// $gift['NombreAgasajado'] 		= 'fede';
+			// $gift['NombreComprador'] 	= 'Juan Pablo';
+			// $gift['MensajePersonalizado'] 	= 'Te queria desea un muy buen feliz cumpleaños.';
+			// $gift['fecha_venc'] 				= date('d-m-Y', strtotime("+90 days"));
+			// $gift['codigo'] 					= 'UH76T';
+			// $gift['servicio']					= 'Masajes relajantes.';
 
-			$message = $this->load->view('template_gift',$data,TRUE);
+			foreach ($gift AS  $gif)
+			{
 
-			$this->load->library('email');
-			$config = array(
-					    'protocol' => 'smtp',
-					    'smtp_host' => 'smtp.webalibre.com.ar',
-					    'smtp_port' => 25,
-					    'smtp_user' => 'send_email@webalibre.com.ar',
-					    'smtp_pass' => 'send_pass2k15',
-					    'smtp_timeout' => '4',
-					    'mailtype'  => 'html',
-					    'charset'   => 'utf-8'
-					);
-			$this->email->initialize($config);
+				$message = $this->load->view('template_gift',$gif,TRUE);
 
-			$this->email->from($this->config->item('juanpablososa@gmail.com'));
-			$this->email->to($gift['EmailComprador']);
-			$this->email->subject('Envío Voucher.');
-			$this->email->message($message);
+				$this->load->library('email');
+				// $config = array(
+				// 		    'protocol' => 'smtp',
+				// 		    'smtp_host' => 'smtp.webalibre.com.ar',
+				// 		    'smtp_port' => 25,
+				// 		    'smtp_user' => 'send_email@webalibre.com.ar',
+				// 		    'smtp_pass' => 'send_pass2k15',
+				// 		    'smtp_timeout' => '4',
+				// 		    'mailtype'  => 'html',
+				// 		    'charset'   => 'utf-8'
+				// 		);
+				$config = array(
+						    'protocol' => 'smtp',
+						    'smtp_host' => 'smtp.allytech.com',
+						    'smtp_port' => 25,
+						    'smtp_user' => 'juans@allytech.com',
+						    'smtp_pass' => 'juans_2k13',
+						    'smtp_timeout' => '4',
+						    'mailtype'  => 'html',
+						    'charset'   => 'utf-8'
+						);
+				$this->email->initialize($config);
 
-			if($this->email->send()) {
-				// echo $this->email->print_debugger();
-				// die();
-				return true;
-			}else {
-				// echo $this->email->print_debugger();
-				// die();
-				return false;
+				$this->email->from($this->config->item('juanpablososa@gmail.com'));
+				$this->email->to($gif['EmailComprador']);
+				$this->email->subject('Envío Voucher.');
+				$this->email->message($message);
+
+				$this->email->send();
+				sleep(1);
+				$this->email->clear();
+
 			}
+
+			return true;
 
 		} catch (Exception $e) {
 			echo $e->getMessage();
