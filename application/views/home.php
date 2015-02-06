@@ -85,7 +85,7 @@
 									<div class="form-row">
 										<?php if (isset($gift['cantidad']) && $gift['cantidad'] != -1): ?>
 											<h4><strong>Te faltan <?php echo $gift['cantidad']; ?> Vouchers para enviar.</strong></h4>
-											<a href="<?php echo base_url('home'); ?>"> quiero volver a empezar todo </a>
+											<a href="<?php echo base_url('home'); ?>" style="color: #6c1927;"> Quiero volver a empezar todo </a>
 										<?php else: ?>
 											<h4> Seleccioná la cantidad de gifts que vas a regalar: </h4>
 											<select required id="cantidad" name="cantidad" title="campo obligatorio" <?php if (isset($gift['IdVenta'])): echo 'disabled'; endif; ?> >
@@ -253,7 +253,8 @@
 					<HR />
 					<ul>
 						<li><strong>Teléfono:</strong> 4784.3333</li>
-						<li><strong>Email:</strong> info@spabelgrano.com</li>
+						<li><strong>Email:</strong> <a class="link_sociales" href="mailto:info@spabelgrano.com"> info@spabelgrano.com</a></li>
+
 						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
 						<li>
 							<a class="link_sociales" href="https://twitter.com/SpaBelgrano" target="_blank">

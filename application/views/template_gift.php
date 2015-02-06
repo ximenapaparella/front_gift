@@ -306,13 +306,13 @@ table[class="footer-column"] {
 														</tr>
 														<tr>
 															<td height="44">
-																<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px; text-align:center;" >Tratamiento Seleccionado | Código: A5426
+																<p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; color:#777; line-height:15px; text-align:center;" >Tratamiento Seleccionado
 																</p>
 															</td>
 														</tr>
 														<tr>
 															<td height="59">
-																<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#666; text-align:center;">Fecha de Vencimiento
+																<p style="font-size:10px; font-family:Arial, Helvetica, sans-serif; color:#666; text-align:center;">Válido hasta el 23-may-2015 | Código: A5426
 																</p>
 															</td>
 														</tr>

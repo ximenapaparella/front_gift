@@ -53,7 +53,7 @@
  	<div style="margin-bottom:30px;">
    <h1 style="text-align:center;">Muchas gracias!</h1>
    <p style="text-align:center; color:#555;">Tu Gift ha sido enviado por correo electrónico para que puedas reenviarlo a tu agasajado.<br>
-     Si no recibiste el gift, por favor corroborá la carpeta de correo no deseado, o envianos un mail a info@spabelgrano.com
+     Si no recibiste el gift, por favor corroborá la carpeta de correo no deseado, o envianos un mail a <a class="link_sociales" href="mailto:info@spabelgrano.com">info@spabelgrano.com</a>
    </p>
    <hr style="color:#999;" />
    </div>
@@ -75,13 +75,21 @@
                 <div class="footer">
          			<HR />
 
-           	  	  <ul>
-						<li><strong>Teléfono:</strong> 4784.3333</li>
-						<li><strong>Email:</strong> info@spabelgrano.com</li>
-						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
-					  <li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
-                        <li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
-					</ul>
+         			<ul>
+         				<li><strong>Teléfono:</strong> 4784.3333</li>
+         				<li><strong>Email:</strong> <a class="link_sociales" href="mailto:info@spabelgrano.com"> info@spabelgrano.com</a></li>
+         				<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
+         				<li>
+         					<a class="link_sociales" href="https://twitter.com/SpaBelgrano" target="_blank">
+         						<img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano
+         					</a>
+         				</li>
+         				<li>
+         					<a class="link_sociales" href="https://www.facebook.com/spabelgrano?fref=ts" target="_blank">
+         						<img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano
+         					</a>
+         				</li>
+         			</ul>
 
          		</div>
             </div>
