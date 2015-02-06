@@ -198,7 +198,9 @@
 					</tr>
 					<tr>
 						<td style="padding-left:65px;padding-right:70px;">
-							<p id="gift_servicio" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">&nbsp;</p>
+							<p id="gift_servicio_old" style="font-size:14px; font-family:Arial, Helvetica, sans-serif; color:#777; text-align:center;">
+								Gift Certificate válido por: <span id="gift_servicio"> </span>
+							</p>
 						</td>
 					</tr>
 					<tr>
@@ -253,8 +255,16 @@
 						<li><strong>Teléfono:</strong> 4784.3333</li>
 						<li><strong>Email:</strong> info@spabelgrano.com</li>
 						<li><strong>Dirección:</strong> Virrey del Pino 2237, Belgrano</li>
-						<li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano</li>
-                        		<li><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano</li>
+						<li>
+							<a class="link_sociales" href="https://twitter.com/SpaBelgrano" target="_blank">
+								<img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/twitter.png" width="20" height="20"> @spabelgrano
+							</a>
+						</li>
+                        		<li>
+                        			<a class="link_sociales" href="https://www.facebook.com/spabelgrano?fref=ts" target="_blank">
+                        				<img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/facebook.png" width="20" height="20"> /spabelgrano
+                        			</a>
+                        		</li>
 					</ul>
 				</div>
 			</div>
