@@ -1,6 +1,7 @@
 application/config/config.php
 application/config/database.php
 application/config/constants.php
+application/config/data_mail.php
 .buildpath
 .project
 .settings
