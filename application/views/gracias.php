@@ -24,7 +24,7 @@
 				<div class="span12">
 
 					<h1><a href="home-minimal.html#"><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" /></a></h1>
-					<h2 class="menulink"><a href="home-minimal.html#">Menu</a></h2>
+					<h2 class="menulink"><a href="<?php echo base_url(''); ?>">Menu</a></h2>
 
 					<!-- Start Menu -->
 					<div id="menu">

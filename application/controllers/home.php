@@ -93,44 +93,24 @@ class Home extends CI_Controller {
 
 
 			$gift = $this->gift_model->get_all_gifts($id_venta);
-			// $gift['NombreComprador'] 	= 'Juan Pablo';
-			// $gift['EmailComprador'] 		= 'juanpablososa@gmail.com';
-			// $gift['NombreAgasajado'] 		= 'fede';
-			// $gift['NombreComprador'] 	= 'Juan Pablo';
-			// $gift['MensajePersonalizado'] 	= 'Te queria desea un muy buen feliz cumpleaños.';
-			// $gift['fecha_venc'] 				= date('d-m-Y', strtotime("+90 days"));
-			// $gift['codigo'] 					= 'UH76T';
-			// $gift['servicio']					= 'Masajes relajantes.';
 
 			foreach ($gift AS  $gif)
 			{
-
 				$message = $this->load->view('template_gift',$gif,TRUE);
-
 				$this->load->library('email');
-				// $config = array(
-				// 		    'protocol' => 'smtp',
-				// 		    'smtp_host' => 'smtp.webalibre.com.ar',
-				// 		    'smtp_port' => 25,
-				// 		    'smtp_user' => 'send_email@webalibre.com.ar',
-				// 		    'smtp_pass' => 'send_pass2k15',
-				// 		    'smtp_timeout' => '4',
-				// 		    'mailtype'  => 'html',
-				// 		    'charset'   => 'utf-8'
-				// 		);
+				$this->load->config('data_mail');
 				$config = array(
-						    'protocol' => 'smtp',
-						    'smtp_host' => 'smtp.allytech.com',
-						    'smtp_port' => 25,
-						    'smtp_user' => 'juans@allytech.com',
-						    'smtp_pass' => 'juans_2k13',
-						    'smtp_timeout' => '4',
-						    'mailtype'  => 'html',
-						    'charset'   => 'utf-8'
+						    'protocol' 	=> $this->config->item('mail_protocol'),
+						    'smtp_host' 	=> $this->config->item('mail_smtp_host'),
+						    'smtp_port' 	=> $this->config->item('mail_smtp_port'),
+						    'smtp_user' 	=> $this->config->item('mail_smtp_user'),
+						    'smtp_pass' 	=> $this->config->item('mail_smtp_pass'),
+						    'smtp_timeout' => $this->config->item('mail_smtp_timeout'),
+						    'mailtype'  	=> $this->config->item('mail_mailtype'),
+						    'charset'   	=>$this->config->item('mail_charset')
 						);
 				$this->email->initialize($config);
-
-				$this->email->from($this->config->item('juanpablososa@gmail.com'));
+				$this->email->from('SpaBelgrano');
 				$this->email->to($gif['EmailComprador']);
 				$this->email->subject('Envío Voucher.');
 				$this->email->message($message);
@@ -138,7 +118,6 @@ class Home extends CI_Controller {
 				$this->email->send();
 				sleep(1);
 				$this->email->clear();
-
 			}
 
 			return true;
