@@ -356,6 +356,7 @@
 					$('#comprar').css({"display":"none"});
 					$('#nombre').prop('disabled', false);
 					$('#apellido').prop('disabled', false);
+					$('#servicio').prop('disabled', false);
 					$('#email').prop('disabled', false);
 					$('#telefono').prop('disabled', false);
 					$('#nombre_para').prop('disabled', false);
