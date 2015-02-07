@@ -152,10 +152,10 @@
 											</div>
 										<?php else: ?>  <!-- SIGUE AVANZANDO EN LOS VOUCHERS -->
 											<div class="form-row">
-												<input id="continuar"  style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
+												<input id="continuar"  style="display: none;" type="submit" name="continuar" value="Guardar y continuar" disabled class="btn">
 											</div>
 											<div class="form-row">
-												<input id="comprar" style="opacity: 0.4;filter: alpha(opacity=40);" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
+												<input id="comprar" style="display: none;" type="submit" name="comprar" value="Comprar Gift" disabled class="btn">
 											</div>
 										<?php endif; ?>
 								</form>

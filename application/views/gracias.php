@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="span12">
 
-					<h1><a href="home-minimal.html#"><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" /></a></h1>
+					<h1><a href="<?php echo base_url(''); ?>"><img src="<?php echo base_url() . TEMPLATE_ASSETS; ?>images/logo-spa.png" alt="Convert" /></a></h1>
 					<h2 class="menulink"><a href="<?php echo base_url(''); ?>">Menu</a></h2>
 
 					<!-- Start Menu -->
