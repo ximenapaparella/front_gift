@@ -124,15 +124,15 @@
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="NombreComprador" id="nombre" disabled size="30" value="<?php if (isset($gift['NombreComprador'])): echo $gift['NombreComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu Nombre">
+										<input type="text" name="NombreComprador" id="nombre" disabled size="30" value="<?php if (isset($gift['NombreComprador'])): echo $gift['NombreComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu nombre">
 									</div>
 
 									<div class="form-row">
-										<input type="text" name="ApellidoComprador" id="apellido" disabled size="30" value="<?php if (isset($gift['ApellidoComprador'])): echo $gift['ApellidoComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu Apellido">
+										<input type="text" name="ApellidoComprador" id="apellido" disabled size="30" value="<?php if (isset($gift['ApellidoComprador'])): echo $gift['ApellidoComprador'];endif; ?>" title="campo obligatorio" required class="text login_input"  placeholder="Tu apellido">
 									</div>
 
 									<div class="form-row">
-										<input type="email" name="EmailComprador" id="email" title="email incorrecto" disabled size="30" value="<?php if (isset($gift['EmailComprador'])): echo $gift['EmailComprador'];endif; ?>" required class="text login_input"  placeholder="Tu E-mail">
+										<input type="email" name="EmailComprador" id="email" title="email incorrecto" disabled size="30" value="<?php if (isset($gift['EmailComprador'])): echo $gift['EmailComprador'];endif; ?>" required class="text login_input"  placeholder="Tu e-mail">
 									</div>
 									<div class="form-row">
 										<input type="text" name="TelefonoComprador" id="telefono" disabled size="30" value="<?php if (isset($gift['TelefonoComprador'])): echo $gift['TelefonoComprador'];endif; ?>" class="text login_input"  placeholder="Tu teléfono">
@@ -144,7 +144,7 @@
 										<input type="text" name="ApellidoAgasajado" id="apellido_para" disabled size="30" value="<?php if (isset($gift['ApellidoAgasajado'])): echo $gift['ApellidoAgasajado'];endif; ?>" class="text login_input"  placeholder="Apellido del agasajado">
 									</div>
 									<div class="form-row">
-										<textarea name="MensajePersonalizado" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje Personalizado (Hasta 150 caracteres)"><?php if (isset($gift['MensajePersonalizado'])): echo $gift['MensajePersonalizado'];endif; ?></textarea>
+										<textarea name="MensajePersonalizado" id="mensaje" required  disabled title="campo obligatorio" maxlength="150" placeholder="Mensaje personalizado (Hasta 150 caracteres)"><?php if (isset($gift['MensajePersonalizado'])): echo $gift['MensajePersonalizado'];endif; ?></textarea>
 									</div>
 										<?php if (isset($gift['cantidad']) && $gift['cantidad'] == 1): ?> <!-- YA ES EL ULTIMO VOUCHER Y VA A COMPRAR -->
 											<div class="form-row">
@@ -381,6 +381,5 @@
 		<?php endif; ?>
 	});
 </script>
-
 
 
